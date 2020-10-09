@@ -17,11 +17,19 @@ function generatePassword() {
 
   // prompt: what is the length?
   var length = prompt("Preferred length of password? (Please choose between 8 and 128.)", "12");
-  console.log(length, typeof length);
+  length = Number.parseInt(length);
+  // if length NaN then return in error
+  if (Number.isNaN(length)) {
+    alert("Invalid. Please enter a valid number.");
+    return "";
+  }
+  if (length < 8 || length > 128) {
+    alert("Invalid password length!");
+    return "";
+  }
+  console.log("length", length, typeof length);
 
-  //    valid values are >= 8 && <= 128
-
-  // confirm: lowercase option to type in lowercase, uppercase, or both
+  // confirm: lowercase option to type in lowercase, uppercase, or both (minute 28ish)
   var lowercase = confirm("Click OK if you want lowercase letters.");
   console.log("lowercase", lowercase, typeof lowercase);
 
@@ -40,6 +48,7 @@ function generatePassword() {
   console.log("special", special, typeof special);
 
   // generate a password
+
 
   return "password";
 }; // end function generatePassword
