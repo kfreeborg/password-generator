@@ -68,18 +68,7 @@ function generatePassword() {
 
   var generated = "";
 
-  // randomly select
 
-  // const months = ["January", "February", "March", "April", "May", "June", "July"];
-
-  // const random = Math.floor(Math.random() * months.length);
-  // console.log(random, months[random]);
-
-
-  var allCharactersIndex = Math.floor(Math.random() * allCharacters.length);
-  generated = generated + allCharacters[allCharactersIndex];
-
-  console.log("generated", generated, typeof generated);
 
   // generate a password
   // length: 8-128 
@@ -88,7 +77,29 @@ function generatePassword() {
   // numeric: include numbers if true, not if false
   // special characters: include characters if true, not if false
 
-  return "";
+  // var lowercaseIndex = Math.floor(Math.random() * allLowercase.length);
+  // generated = generated + allLowercase[lowercaseIndex];
+  // var uppercaseIndex = Math.floor(Math.random() * allUppercase.length);
+  // generated = generated + allUppercase[uppercaseIndex];
+  // var numbersIndex = Math.floor(Math.random() * allNumbers.length);
+  // generated = generated + allNumbers[numbersIndex];
+  // var symbolsIndex = Math.floor(Math.random() * allSymbols.length);
+  // generated = generated + allSymbols[symbolsIndex];
+  // var allCharactersIndex = Math.floor(Math.random() * allCharacters.length);
+  // generated = generated + allCharacters[allCharactersIndex];
+
+  if (lowercase) {
+    var lowercaseIndex = Math.floor(Math.random() * allLowercase.length);
+    generated = generated + allLowercase[lowercaseIndex];
+  } else { // do not return lowercase letters
+    generated = generated - allLowercase;
+  };
+
+
+
+  console.log("generated", generated, typeof generated);
+
+  return generated;
 }; // end function generatePassword
 
 // Add event listener to generate button
