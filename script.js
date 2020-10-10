@@ -68,8 +68,6 @@ function generatePassword() {
 
   var generated = "";
 
-
-
   // generate a password
   // length: 8-128 
   // lowercase: if true include lowercase if false don't inclue
@@ -77,25 +75,20 @@ function generatePassword() {
   // numeric: include numbers if true, not if false
   // special characters: include characters if true, not if false
 
-  // var lowercaseIndex = Math.floor(Math.random() * allLowercase.length);
-  // generated = generated + allLowercase[lowercaseIndex];
-  // var uppercaseIndex = Math.floor(Math.random() * allUppercase.length);
-  // generated = generated + allUppercase[uppercaseIndex];
-  // var numbersIndex = Math.floor(Math.random() * allNumbers.length);
-  // generated = generated + allNumbers[numbersIndex];
-  // var symbolsIndex = Math.floor(Math.random() * allSymbols.length);
-  // generated = generated + allSymbols[symbolsIndex];
-  // var allCharactersIndex = Math.floor(Math.random() * allCharacters.length);
-  // generated = generated + allCharacters[allCharactersIndex];
-
+  // randomize
   if (lowercase) {
     var lowercaseIndex = Math.floor(Math.random() * allLowercase.length);
     generated = generated + allLowercase[lowercaseIndex];
-  } else { // do not return lowercase letters
-    generated = generated - allLowercase;
+  } else if (uppercase) { // do not return lowercase letters
+    var uppercaseIndex = Math.floor(Math.random() * allUppercase.length);
+    generated = generated + allUppercase[uppercaseIndex];
+  } else if (numeric) {
+    var numbersIndex = Math.floor(Math.random() * allNumbers.length);
+    generated = generated + allNumbers[numbersIndex];
+  } else if (special) {
+    var symbolsIndex = Math.floor(Math.random() * allSymbols.length);
+    generated = generated + allSymbols[symbolsIndex];
   };
-
-
 
   console.log("generated", generated, typeof generated);
 
