@@ -58,19 +58,35 @@ function generatePassword() {
   var special = confirm("Click OK if you want special characters.");
   console.log("special", special, typeof special);
 
-  // generate a password
-  // length: 8-128 
-  // leading digit is a letter
-  // lowercase: if true include lowercase if false don't inclue
-  // uppercase: include uppercase if true, not if false
-  // numeric: include numbers if true, not if false
-  // special characters: include characters if true, not if false
 
   // make arrays
   var allLowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var allUppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var allDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];]
+  var allNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var allSymbols = ["!", "#", "$", "%", "&", "'", ")", "(", "*", "+", "-", "/", ":", ";", "<", ">", "=", "?", "@"];
+  var allCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "#", "$", "%", "&", "'", ")", "(", "*", "+", "-", "/", ":", ";", "<", ">", "=", "?", "@"];
+
+  var generated = "";
+
+  // randomly select
+
+  // const months = ["January", "February", "March", "April", "May", "June", "July"];
+
+  // const random = Math.floor(Math.random() * months.length);
+  // console.log(random, months[random]);
+
+
+  var allCharactersIndex = Math.floor(Math.random() * allCharacters.length);
+  generated = generated + allCharacters[allCharactersIndex];
+
+  console.log("generated", generated, typeof generated);
+
+  // generate a password
+  // length: 8-128 
+  // lowercase: if true include lowercase if false don't inclue
+  // uppercase: include uppercase if true, not if false
+  // numeric: include numbers if true, not if false
+  // special characters: include characters if true, not if false
 
   return "";
 }; // end function generatePassword
