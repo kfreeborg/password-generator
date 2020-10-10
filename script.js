@@ -17,7 +17,7 @@ function generatePassword() {
 
   // prompt: what is the length?
   var length = prompt("Preferred length of password? (Please choose between 8 and 128.)", "12");
-  length = Number.parseInt(length);
+  length = Number.parseInt(length, 10);
   // if length NaN then return in error
   if (Number.isNaN(length)) {
     alert("Invalid. Please enter a valid number.");
@@ -28,14 +28,6 @@ function generatePassword() {
     return "";
   }
   console.log("length", length, typeof length);
-
-  // confimr lowercase or uppercase or both
-  // var lettering = prompt("Would you like lowercase or uppercase lettering?\nPlease type in LOWERCASE or UPPERCASE.\nClick cancel for BOTH.", "LOWERCASE")
-  // console.log("lettering", lettering, typeof lettering);
-  // if (lettering !== "LOWERCASE" && lettering !== "UPPERCASE") {
-  //   alert("Invalid! Please specify LOWERCASE or UPPERCASE.");
-  //   return "";
-  // }
 
   // confirm: lowercase
   var lowercase = confirm("Click OK if you want lowercase letters.");
@@ -69,30 +61,41 @@ function generatePassword() {
   var generated = "";
 
   // generate a password
-  // length: 8-128 
-  // lowercase: if true include lowercase if false don't inclue
-  // uppercase: include uppercase if true, not if false
-  // numeric: include numbers if true, not if false
-  // special characters: include characters if true, not if false
 
-  // randomize
-  if (lowercase) {
-    var lowercaseIndex = Math.floor(Math.random() * allLowercase.length);
-    generated = generated + allLowercase[lowercaseIndex];
-  } else if (uppercase) { // do not return lowercase letters
-    var uppercaseIndex = Math.floor(Math.random() * allUppercase.length);
-    generated = generated + allUppercase[uppercaseIndex];
-  } else if (numeric) {
-    var numbersIndex = Math.floor(Math.random() * allNumbers.length);
-    generated = generated + allNumbers[numbersIndex];
-  } else if (special) {
-    var symbolsIndex = Math.floor(Math.random() * allSymbols.length);
-    generated = generated + allSymbols[symbolsIndex];
+  // length: 8-128 
+  // var i = 0;
+  // while (i < length) {
+  //  i++;
+
+  var size = length - 1;
+  for (var i = 0; i < size; i++) {
+    // debugger
+    if (lowercase) {
+      var lowercaseIndex = Math.floor(Math.random() * allLowercase.length);
+      generated = generated + allLowercase[lowercaseIndex];
+    };
+    if (uppercase) {
+      var uppercaseIndex = Math.floor(Math.random() * allUppercase.length);
+      generated = generated + allUppercase[uppercaseIndex];
+    };
+    if (numeric) {
+      var numbersIndex = Math.floor(Math.random() * allNumbers.length);
+      generated = generated + allNumbers[numbersIndex];
+    };
+    if (special) {
+      var symbolsIndex = Math.floor(Math.random() * allSymbols.length);
+      generated = generated + allSymbols[symbolsIndex];
+    };
+    // break;
   };
+
 
   console.log("generated", generated, typeof generated);
 
-  return generated;
+
+
+  return generated.slice(0, length);
+
 }; // end function generatePassword
 
 // Add event listener to generate button
