@@ -5,5 +5,5 @@
 
 This site was built using [GitHub Pages](https://kfreeborg.github.io/password-generator/). 
 
-![Getting Started](./Capture.jpg)
+![Getting Started](/Capture.JPG)
 
