@@ -62,14 +62,10 @@ function generatePassword() {
 
   // generate a password
 
-  // length: 8-128 
-  // var i = 0;
-  // while (i < length) {
-  //  i++;
-
   var size = length - 1;
   for (var i = 0; i < size; i++) {
-    // debugger
+
+
     if (lowercase) {
       var lowercaseIndex = Math.floor(Math.random() * allLowercase.length);
       generated = generated + allLowercase[lowercaseIndex];
@@ -86,13 +82,10 @@ function generatePassword() {
       var symbolsIndex = Math.floor(Math.random() * allSymbols.length);
       generated = generated + allSymbols[symbolsIndex];
     };
-    // break;
   };
-
+  // break;
 
   console.log("generated", generated, typeof generated);
-
-
 
   return generated.slice(0, length);
 
